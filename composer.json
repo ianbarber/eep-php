@@ -1,0 +1,22 @@
+{
+    "name": "react/eep",
+    "description": "EEP event process for React.",
+    "keywords": ["eep"],
+    "license": "LGPL",
+    "require": {
+        "php": ">=5.3.2",
+        "evenement/evenement": "1.0.*",
+        "react/event-loop": "0.2.*"
+    },
+    "require-dev": {
+        "ext-pcntl": "*"
+    },
+    "autoload": {
+        "psr-0": { "React\\EEP": "src" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    }
+}
