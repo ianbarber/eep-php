@@ -5,8 +5,7 @@ namespace React\EEP\Stats;
 class MeanTest extends \PHPUnit_Framework_TestCase
 {
     /** @test */
-    public function averageOfTwoNumbersShouldBeHalf()
-    {
+    public function averageOfTwoNumbersShouldBeHalf() {
       $mean = new Mean();
       $mean->init();
       $mean->accumulate(4);
@@ -14,8 +13,7 @@ class MeanTest extends \PHPUnit_Framework_TestCase
       $this->assertEquals(6, $mean->emit());
     }
     
-    public function compensateRemovesNumber()
-    {
+    public function compensateRemovesNumber() {
       $mean = new Mean();
       $mean->init();
       $mean->accumulate(4);

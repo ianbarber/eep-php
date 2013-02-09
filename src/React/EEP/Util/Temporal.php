@@ -19,7 +19,8 @@ class Temporal implements Aggregator
   
   public function init() { 
     $this->inner->init();
-    $this->value = new \React\EEP\Temporal($this->inner->emit(), $this->instant);
+    $this->value = new \React\EEP\Temporal($this->inner->emit(), 
+                                           $this->instant);
   }
   
   public function accumulate($v) { 

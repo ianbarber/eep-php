@@ -36,7 +36,7 @@ class Variance implements Aggregator
     $this->m_n -= 1;
     
     $this->new_m = $this->old_m + ($this->old_m - $v)/$this->m_n;
-    $this->new_s = $this->old_s + ($this->old_m - $v)*($this->new_m - $v);
+    $this->new_s = $this->old_s + ($this->old_m - $v)*($v - $this->new_m);
     
     $this->old_m = $this->new_m;
     $this->old_s = $this->new_s;

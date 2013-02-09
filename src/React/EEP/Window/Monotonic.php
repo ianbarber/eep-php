@@ -18,9 +18,8 @@ class Monotonic extends EventEmitter implements Window
   
   public function __construct(Aggregator $aggregator, Clock $clock) {
     $this->clock = $clock;
-    $this->clock->init();
     $this->aggregator = new \React\EEP\Util\Temporal( $aggregator, 
-                                                      $clock->init());
+                                                      $this->clock->init());
     $this->aggregator->init();
     $this->index = 0;
   }

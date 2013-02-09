@@ -54,8 +54,8 @@ $ops = array(
   "min" => new React\EEP\Stats\Min,
   "max" => new React\EEP\Stats\Max,
   "mean" => new React\EEP\Stats\Mean,
-  "vars" => new React\EEP\Stats\Variance,
   "stdevs" => new React\EEP\Stats\Stdev,
+  "vars" => new React\EEP\Stats\Variance,
 );
 
 $sizes = array(1000, 100, 10, 1);
