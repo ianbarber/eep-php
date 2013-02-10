@@ -19,8 +19,10 @@ class Temporal implements Aggregator
   
   public function init() { 
     $this->inner->init();
-    $this->value = new \React\EEP\Temporal($this->inner->emit(), 
-                                           $this->instant);
+    // Slight difference to EEP.js here. Not triggering an emit here
+    // as this value will never make it anywhere, it could confuse
+    // emit-sensitive functions (mainly me, during testing).
+    $this->value = new \React\EEP\Temporal(null,$this->instant);
   }
   
   public function accumulate($v) { 
@@ -35,5 +37,9 @@ class Temporal implements Aggregator
   
   public function at() {
     return $this->value->at;
+  }
+  
+  public function update($time) {
+    $this->instant = $time;
   }
 }

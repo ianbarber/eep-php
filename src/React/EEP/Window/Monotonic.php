@@ -14,14 +14,13 @@ use Evenement\EventEmitter;
  */
 class Monotonic extends EventEmitter implements Window
 {
-  private $clock, $aggregator, $index;
+  private $clock, $aggregator;
   
   public function __construct(Aggregator $aggregator, Clock $clock) {
     $this->clock = $clock;
     $this->aggregator = new \React\EEP\Util\Temporal( $aggregator, 
                                                       $this->clock->init());
     $this->aggregator->init();
-    $this->index = 0;
   }
   
   public function enqueue($event) {
@@ -33,12 +32,14 @@ class Monotonic extends EventEmitter implements Window
     if (!$this->clock->tick()) {
       return;
     } 
-    
-    // Otherwise, emit
+
+    // Otherwise, emit if an interval worth of time has passed
     if ($this->clock->tock($this->aggregator->at())) {
       $this->emit('emit', array($this->aggregator->emit()->value));
+      // this updates the at value of the aggregator for the next window
+      $this->aggregator->update($this->clock->at());
       // 'close' current time window and 'open' a fresh one
-      $this->aggregator->init();
-    };
+      $this->aggregator->init(); 
+    }
   }
 }

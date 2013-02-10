@@ -7,7 +7,7 @@ class Counting implements Clock {
   private $at, $mark;
   
   public function __construct() {
-    $this->at = $this->mark = 0;
+    $this->mark = null;
   }
   
   public function at() {
@@ -15,7 +15,7 @@ class Counting implements Clock {
   }
   
   public function init() {
-    $this->at = intval(microtime(true) * 1000);
+    $this->at = $this->mark = 0;
     return $this->at;
   }
   

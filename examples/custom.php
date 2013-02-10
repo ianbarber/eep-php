@@ -22,7 +22,7 @@ class WideFinderFunction implements Aggregator {
       return;
     }
     $key = $matches[1];
-    if(!$this->keys[$key]) {
+    if(!isset($this->keys[$key])) {
       $this->keys[$key] = 1;
     } else {
       $this->keys[$key]++;
@@ -39,7 +39,7 @@ class WideFinderFunction implements Aggregator {
   }
   
   public function emit() {
-    return array($this->keys);
+    return $this->keys;
   }
 }
 
@@ -50,19 +50,27 @@ $win = new React\EEP\Window\Monotonic($fn, $clock);
 
 // On emit, log top 10 hits to standard output
 $win->on('emit', function($matches) {
+  arsort($matches); 
   $all = array();
   foreach($matches as $url => $n) {
     $all[] = array("url" => $url, "n" => $n);
   }
-  asort($all); 
   $i = 1;
   foreach(array_slice($all, 0, 10) as $match) {
-    prinf("%d:\t%s with %d hits\n", $i++, $match['url'], $match["n"]);
+    printf("%d:\t%s with %d hits\n", $i++, $match['url'], $match["n"]);
   }
 });
 
-$data = file_get_contents("http://www.tbray.org/tmp/o10k.ap");
-foreach($data as $line) {
+$fh;
+if(file_exists("./data.txt")) {
+  $fh = fopen("data.txt", "r");
+} else {
+  echo "Fetching data file\n";
+  $fh = fopen("http://www.tbray.org/tmp/o10k.ap", "r");
+}
+
+while($line = fgets($fh)) {
   $win->enqueue($line);
 }
 $win->tick();
+fclose($fh);

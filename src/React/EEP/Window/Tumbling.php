@@ -22,6 +22,7 @@ class Tumbling extends EventEmitter implements Window
     $this->index += 1;
     if ($this->index == $this->size) {
       $this->emit('emit', array($this->aggregator->emit()));
+      $this->aggregator->init();
       $this->index = 0;
     }
   }

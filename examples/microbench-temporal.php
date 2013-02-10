@@ -75,4 +75,6 @@ foreach($ops as $name => $op) {
     $results[0]['rate'], $results[1]['rate'], 
     $results[2]['rate'], $results[3]['rate'],
     $name);
+  // Verify that we have 4*5s window
+  // echo time(), "\n";
 }

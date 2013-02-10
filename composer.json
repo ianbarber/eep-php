@@ -9,14 +9,10 @@
         "react/event-loop": "0.2.*"
     },
     "require-dev": {
-        "ext-pcntl": "*"
+        "ext-pcntl": "*",
+		"phpunit/phpunit": "3.7.*"
     },
     "autoload": {
         "psr-0": { "React\\EEP": "src" }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.1-dev"
-        }
     }
 }

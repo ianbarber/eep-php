@@ -13,6 +13,7 @@ class MeanTest extends \PHPUnit_Framework_TestCase
       $this->assertEquals(6, $mean->emit());
     }
     
+    /** @test */
     public function compensateRemovesNumber() {
       $mean = new Mean();
       $mean->init();

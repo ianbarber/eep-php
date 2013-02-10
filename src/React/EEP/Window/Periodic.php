@@ -5,8 +5,6 @@ namespace React\EEP\Window;
 use React\EEP\Aggregator;
 use React\EEP\Window;
 use React\EEP\Clock\Wall;
-use React\EEP\Temporal;
-use Evenement\EventEmitter;
 
 /**
  * A periodic window. Lowest granularity, or a moment of time, is milliseconds.
@@ -16,7 +14,7 @@ use Evenement\EventEmitter;
 class Periodic extends Monotonic implements Window
 { 
   public function __construct(Aggregator $aggregator, $millis) {
-    $this->clock = new Wall($millis);
-    parent::__construct($aggregator, $this->clock);
+    $clock = new Wall($millis);
+    parent::__construct($aggregator, $clock);
   }
 }
