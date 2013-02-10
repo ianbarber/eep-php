@@ -1,6 +1,6 @@
 # React/EEP
 
-A port of Darach Ennis' Extreme Event Processing (eep.js - [LINK]) to PHP
+A port of Darach Ennis' Extreme Event Processing (eep.js - https://github.com/darach/eep-js) to PHP and React. Take a look at the README there for background and motivation. 
 
 ## Install
 
