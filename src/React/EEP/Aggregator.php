@@ -8,5 +8,4 @@ interface Aggregator
   public function accumulate($event);
   public function compensate($event);
   public function emit();
-  //public function make();
 }

@@ -5,7 +5,7 @@ namespace React\EEP\Window;
 use React\EEP\Aggregator;
 use React\EEP\Clock;
 use React\EEP\Window;
-use React\EEP\Temporal;
+use React\EEP\Event\Temporal;
 use Evenement\EventEmitter;
 
 /**

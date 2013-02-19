@@ -22,7 +22,7 @@ class Temporal implements Aggregator
     // Slight difference to EEP.js here. Not triggering an emit here
     // as this value will never make it anywhere, it could confuse
     // emit-sensitive functions (mainly me, during testing).
-    $this->value = new \React\EEP\Temporal(null,$this->instant);
+    $this->value = new \React\EEP\Event\Temporal(null,$this->instant);
   }
   
   public function accumulate($v) { 
@@ -32,7 +32,7 @@ class Temporal implements Aggregator
   public function compensate($_) { }
   
   public function emit() { 
-    return new \React\EEP\Temporal($this->inner->emit(), $this->instant);
+    return new \React\EEP\Event\Temporal($this->inner->emit(), $this->instant);
   }
   
   public function at() {

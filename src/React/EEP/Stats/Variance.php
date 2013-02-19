@@ -43,6 +43,6 @@ class Variance implements Aggregator
   }
   
   public function emit() {
-    return ($this->m_n > 1) ? $this->new_s/($this->m_n - 1): 0;
+    return ($this->m_n > 1) ? $this->new_s/($this->m_n - 1) : 0;
   }
 }

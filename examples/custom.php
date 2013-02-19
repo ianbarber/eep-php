@@ -59,6 +59,7 @@ $win->on('emit', function($matches) {
   foreach(array_slice($all, 0, 10) as $match) {
     printf("%d:\t%s with %d hits\n", $i++, $match['url'], $match["n"]);
   }
+  echo "\n\n";
 });
 
 $fh;

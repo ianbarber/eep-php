@@ -34,8 +34,22 @@ $tumbling_sum->on('emit', function($value) { echo "sum:\t", $value, "\n";});
 foreach($values as $v) {
   $tumbling_sum->enqueue($v);
 }
-
 ```
+
+## Other Examples
+
+The examples mainly come from Darach's, but also others from my talk on Event Stream Processing in PHP: 
+
+1. analytics.php - example using the stats functions
+2. composite.php - example combining stats functions
+3. custom.php - Tim Bray's widefinder with a monotonic clock
+4. leader.php - A beast of a custom window + agg that does lagged correlation for leader detection between two streams
+5. lowrate.php - Simple periodic low rate detector example
+6. microbench-nontemporal.php - Darach's event based benchmark
+7. microbench-temporal.php - Darach's periodic benchmark
+8. servermon.php - An example of using the All stats function to track several variables
+9. tick.php - An aggreagate function which implements a simple state machine for pattern detection
+10. tuplejoin.php - An auction themed example doing a hash based semijoin between two streams
 
 ## Tests
 
