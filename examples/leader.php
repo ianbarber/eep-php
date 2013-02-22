@@ -106,7 +106,7 @@ class LeaderFinder extends EventEmitter implements Window {
   }
 }
 
-// Lets calculate 4 subwindwows.
+// Lets calculate 4 subwindows.
 $size = 12; $subwin = 3;
 $win = new LeaderFinder($size, $subwin);
 $win->on('emit', function($correlation) use ($subwin) {
@@ -119,25 +119,6 @@ $win->on('emit', function($correlation) use ($subwin) {
 // Generate some correlated streams
 $a = array(1, 1, 1, 3, 3, 3, 5, 5, 5, 7, 7, 7, 9, 9, 9, 11, 11, 11);
 $b = array(1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 5, 5, 5, 7, 7, 7);
-
-for($i = 0; $i < count($a); $i++) {
-  $win->enqueue(new React\EEP\Event\Muxed($a[$i], 0));
-  $win->enqueue(new React\EEP\Event\Muxed($b[$i], 1));
-}
-
-echo "Test longer lag\n";
-
-$size = 12; $subwin = 3;
-$win = new LeaderFinder($size, $subwin);
-$win->on('emit', function($correlation) use ($subwin) {
-  list($lead, $follow) = $correlation[0] > 0 ? array(0, 1) : array(1, 0);
-  $diff = abs($correlation[0]) * $subwin;
-  printf("Stream %d leads stream %d by %d ticks with a %.2f correlation\n", 
-    $lead, $follow, $diff, $correlation[1]);
-});
-
-$a = array(1, 1, 1, 1, 1, 4, 4, 4, 4, 4, 6, 6, 6, 6, 6);
-$b = array(1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 5, 5, 5, 5, 5);
 
 for($i = 0; $i < count($a); $i++) {
   $win->enqueue(new React\EEP\Event\Muxed($a[$i], 0));

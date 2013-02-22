@@ -51,13 +51,9 @@ $win = new React\EEP\Window\Monotonic($fn, $clock);
 // On emit, log top 10 hits to standard output
 $win->on('emit', function($matches) {
   arsort($matches); 
-  $all = array();
-  foreach($matches as $url => $n) {
-    $all[] = array("url" => $url, "n" => $n);
-  }
-  $i = 1;
-  foreach(array_slice($all, 0, 10) as $match) {
-    printf("%d:\t%s with %d hits\n", $i++, $match['url'], $match["n"]);
+  $i = 0;
+  foreach(array_slice($matches, 0, 10) as $url => $n) {
+    printf("%d:\t%s with %d hits\n", $i++, $url, $n);
   }
   echo "\n\n";
 });

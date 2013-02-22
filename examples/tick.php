@@ -94,13 +94,3 @@ $win->on('emit', $cb);
 foreach($values as $at => $value) {
   $win->enqueue(new React\EEP\Event\Temporal($value, $at));
 }
-
-echo "\nTest on rand data\n\n";
-
-// Pump a lot of data.
-$win = new React\EEP\Window\Sliding($tick_fn, 20);
-$win->on('emit', $cb);
-$start = microtime(true);
-for($i = 0; $i < 10000; $i++) {
-  $win->enqueue(new React\EEP\Event\Temporal(rand(250, 350), $at));
-}

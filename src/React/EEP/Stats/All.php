@@ -11,7 +11,6 @@ class All implements Aggregator
 {
   private $delta, $n, $sum, $min, $max;
   private $mean, $m2;
-
   
   public function init() {
     $this->mean = $this->m2 = $this->delta = $this->n = $this->sum = 0;

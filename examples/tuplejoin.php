@@ -60,13 +60,13 @@ $match = function($match) use (&$counter) {
 $a_win->on("emit", $match);
 $b_win->on("emit", $match);
 
-$event_count = 10000;
+$event_count = 50000;
 $cats = array("toys", "electrical", "cars", "clothing", "homewares");
 $start = microtime(true);
 $i = 0;
 for($i = 0; $i < $event_count; $i++) {
   // Key - e.g auction ID.
-  $key = rand(1, 1000);
+  $key = rand(1, 5000);
   
   // Randomly select a stream.
   if(rand(0, 1) == 0) {
@@ -81,4 +81,4 @@ for($i = 0; $i < $event_count; $i++) {
 }
 $time = microtime(true) - $start;
 
-printf("%.2feps - %d matches\n", $event_count/$time, $counter);
+// printf("%.2feps - %d matches\n", $event_count/$time, $counter);
