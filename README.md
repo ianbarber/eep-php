@@ -9,7 +9,7 @@ The recommended way to install react/eep is [through composer](http://getcompose
 ```JSON
 {
     "require": {
-        "react/eep": "0.1.*"
+        "react/eep": "v0.1.0"
     }
 }
 ```
