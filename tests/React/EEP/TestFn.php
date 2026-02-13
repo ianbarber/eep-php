@@ -6,7 +6,7 @@ use React\EEP\Aggregator;
 
 class TestFn implements Aggregator {
   private $test, $data, $has_emit;
-  public function __construct(\PHPUnit_Framework_TestCase $test) {
+  public function __construct(\PHPUnit\Framework\TestCase $test) {
     $this->test = $test;
     $this->data = null;
     $this->has_emit = 0;

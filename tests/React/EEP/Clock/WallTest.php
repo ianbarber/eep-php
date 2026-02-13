@@ -2,7 +2,7 @@
 
 namespace React\EEP\Clock;
 
-class WallTest extends \PHPUnit_Framework_TestCase
+class WallTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function clockShouldIncrement() {

@@ -5,7 +5,7 @@ namespace React\EEP\Window;
 use React\EEP\Clock\Counting;
 use React\EEP\TestFn;
 
-class MonotonicTest extends \PHPUnit_Framework_TestCase
+class MonotonicTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function triggerOnlyOnTick() {

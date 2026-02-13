@@ -2,7 +2,7 @@
 
 namespace React\EEP\Stats;
 
-class MaxTest extends \PHPUnit_Framework_TestCase
+class MaxTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function maxShouldBeTheMin() {
