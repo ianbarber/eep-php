@@ -2,7 +2,7 @@
 
 namespace React\EEP\Stats;
 
-class CountTest extends \PHPUnit_Framework_TestCase
+class CountTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function countShouldCount() {

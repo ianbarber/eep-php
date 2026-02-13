@@ -2,7 +2,7 @@
 
 namespace React\EEP\Stats;
 
-class MeanTest extends \PHPUnit_Framework_TestCase
+class MeanTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function averageOfTwoNumbersShouldBeHalf() {

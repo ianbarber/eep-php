@@ -2,7 +2,7 @@
 
 namespace React\EEP\Stats;
 
-class MinTest extends \PHPUnit_Framework_TestCase
+class MinTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function minShouldBeTheMin() {

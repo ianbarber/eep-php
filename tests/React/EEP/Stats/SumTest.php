@@ -2,7 +2,7 @@
 
 namespace React\EEP\Stats;
 
-class SumTest extends \PHPUnit_Framework_TestCase
+class SumTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function sumUpSomeNumbers() {

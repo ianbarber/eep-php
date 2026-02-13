@@ -5,7 +5,7 @@ namespace React\EEP\Window;
 use React\EEP\Clock\Counting;
 use React\EEP\TestFn;
 
-class TumblingTest extends \PHPUnit_Framework_TestCase
+class TumblingTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test  
